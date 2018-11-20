@@ -5,7 +5,7 @@
 		$id = $_GET['id'];
 		if(isset($_SESSION['cart'][$id])){
 			$sl  = $_SESSION['cart'][$id];
-			$_SESSION['cart'][$id] =$sl +1;
+			$_SESSION['cart'][$id] =$sl + 1;
 		}else{
 			$_SESSION['cart'][$id]=1;
 		}
@@ -22,10 +22,10 @@
 		while ($row = mysqli_fetch_array($rs)) {
 					$id=$row['id_product'];
 					$sl = $_SESSION['cart'][$id];
-					$tongtien += $sl* $row['price'];
 					if($sl>=$row['quality']){
 						$sl = $row['quality'];
 					}
+					$tongtien += $sl* $row['price'];
 ?>
 	<li class="header-cart-item">
 		<div class="header-cart-item-img">
@@ -38,9 +38,9 @@
 			</a>
 
 			<span class="header-cart-item-info">
-				<?php echo $sl; ?> x <?php  echo $row['price']; ?>  
+				<?php echo $sl; ?> x <?php  echo $row['price']; ?>  đ
 			</span>
-			đ
+			
 		</div>
 	</li>
 <?php } ?>

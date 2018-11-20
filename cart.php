@@ -69,6 +69,7 @@
 							<th class="column-4 p-l-60">Quantity</th>
 							<th class="column-5">Total</th>
 							<th class="column"></th>
+							<th class="column"></th>
 						</tr>
 						<?php 
 							while ($row = mysqli_fetch_array($rs)) {
@@ -83,6 +84,7 @@
 							$_SESSION['tongtien'] = $tongtien;
 						 ?>		
 						<form action="editcart.php" method="get">
+							<input type="hidden" name="id" value="<?php echo $id; ?>">
 							<tr class="table-row">
 								<td class="column-1">
 									<div class="cart-img-product b-rad-4 o-f-hidden">
@@ -96,8 +98,7 @@
 										<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2 updatequatity" ten ="+" x="<?php echo $row['quality'] ?>" y="<?php echo $row['id_product'] ?>">
 											-
 										</button>
-
-										<input class="size8 m-text18 t-center num-product quality-<?php echo $row['id_product'] ?>"  type="number" name="num-product1" value="<?php echo $sl ?>" max="<?php echo $row['quality'] ?>">
+										<input class="size8 m-text18 t-center num-product quality-<?php echo $row['id_product'] ?>"  type="number" name="soluong" value="<?php echo $sl ?>" max="<?php echo $row['quality'] ?>" min="1">
 
 										<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2 updatequatity" ten = "-" x="<?php echo $row['quality'] ?>" y="<?php echo $row['id_product'] ?>">
 											+
@@ -105,21 +106,14 @@
 									</div>
 								</td>
 								<td class="column-5"><?php echo $total ?> đ</td>
-								<td class="column"><a href="rmcart.php?ten=<?php echo $id ?>">Rm</a></td>	
+								<td class="column"><button type="submit" name="submit" value="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+								<td class="column"><a href="rmcart.php?ten=<?php echo $id ?>"><i style="color: red;height: 24.4px;" class="fa fa-times" aria-hidden="true"></i></a></td>	
 							</tr>
 						</form>				
 
 						<?php } ?>
 					
 					</table>
-				</div>
-			</div>
-			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-				<div class="size10 trans-0-4 m-t-10 m-b-10">
-					<!-- Button -->
-					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-						Update Cart
-					</button>
 				</div>
 			</div>
 

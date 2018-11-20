@@ -102,7 +102,7 @@
 										</a>
 
 										<span class="header-cart-item-info">
-											<?php echo $sl; ?> x <?php  echo $row['price']; ?>  đ
+											<?php echo $sl; ?> x <?php  echo $row['price']; ?>đ
 										</span>
 									</div>
 								</li>
@@ -131,8 +131,6 @@
 				<?php }else { ?>
 					<div class="header-wrapicon2">
 						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-						<span class="header-icons-noti">0</span>
-
 						<!-- Header cart noti -->
 						<div class="header-cart header-dropdown">
 							<ul class="header-cart-wrapitem">
@@ -206,7 +204,7 @@
 						</ul>
 
 						<div class="header-cart-total">
-							Total: $75.00
+							Total: 75.00
 						</div>
 
 						<div class="header-cart-buttons">
