@@ -40,8 +40,9 @@
 				</a>
 
 				<span class="block2-price m-text6 p-r-5">
-					$<?php echo $row['price'] ?>
+					<?php echo $row['price'] ?> 
 				</span>
+				đ
 			</div>
 		</div>
 	</div>

@@ -12,7 +12,7 @@
 			</div>
 
 			<span class="topbar-child1">
-				Free shipping for standard order over $100
+				Free shipping for all products
 			</span>
 
 			<div class="topbar-child2">
@@ -69,10 +69,8 @@
 					session_start();
 					if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 						$listid="";
-						$i=0;
 						foreach ($_SESSION['cart'] as $key => $value) {
 							$listid.="'".$key."',";
-							$i++;
 						}
 						$listid = trim($listid,",");
 						$sql ="select * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img where p.id_product in ($listid)";
@@ -81,9 +79,6 @@
 				?>
 				<div class="header-wrapicon2">
 					<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-					<div class="item-quality">
-						<span class="header-icons-noti"><?php echo $i ?></span>
-					</div>
 					<!-- Header cart noti -->
 					<div class="header-cart header-dropdown">
 						<ul class="header-cart-wrapitem">
@@ -91,6 +86,9 @@
 								while ($row = mysqli_fetch_array($rs)) {
 									$id=$row['id_product'];
 									$sl = $_SESSION['cart'][$id];
+									if($sl>=$row['quality']){
+										$sl = $row['quality'];
+									}
 									$tongtien += $sl*$row['price'];
 							?>
 								<li class="header-cart-item">
@@ -104,13 +102,13 @@
 										</a>
 
 										<span class="header-cart-item-info">
-											<?php echo $sl; ?> x <?php  echo $row['price']; ?> VND
+											<?php echo $sl; ?> x <?php  echo $row['price']; ?>  đ
 										</span>
 									</div>
 								</li>
 							<?php } ?>
 							<div class="header-cart-total">
-								Total: <?php echo $tongtien ?> VND
+								Total: <?php echo $tongtien ?>  đ
 							</div>
 						</ul>
 						<div class="header-cart-buttons">
@@ -141,7 +139,7 @@
 
 								<p>Your cart empty!!!</p>
 								<div class="header-cart-total">
-									Total: 0 VND
+									Total: 0  đ
 								</div>
 							</ul>
 							<div class="header-cart-buttons">
@@ -185,7 +183,7 @@
 
 				<div class="header-wrapicon2">
 					<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-					<span class="header-icons-noti">0</span>
+					
 
 					<!-- Header cart noti -->
 					<div class="header-cart header-dropdown">

@@ -5,7 +5,7 @@
 	$row = mysqli_fetch_assoc($result);
 	$total_records= $row['total'];
 	$current_page= $_GET['page'];
-	$limit = 12;
+	$limit = 6;
 	$total_page = ceil($total_records/$limit);
 	if($current_page > $total_page){
 		$current_page=$total_page;
@@ -44,8 +44,9 @@
 				</a>
 
 				<span class="block2-price m-text6 p-r-5">
-					$<?php echo $row['price'] ?>
+					<?php echo $row['price'] ?> 
 				</span>
+				đ
 			</div>
 		</div>
 	</div>

@@ -28,6 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
@@ -84,37 +85,32 @@
 				</h4>
 
 				<span class="m-text17">
-					$ <?php echo $row['price']  ?>
+					 <?php echo $row['price']  ?> đ
 				</span>
 
 				<!--  -->
 				<div class="p-t-33 p-b-60">
 					<div class="flex-r-m flex-w p-t-10">
-						<div class="w-size16 flex-m flex-w">
-							Quatity :       
+						<div class="w-size16 flex-m flex-w">  
 							<div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
-
-								<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+								<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2 updatequatity" ten ="+" x="<?php echo $row['quality'] ?>">-
 								</button>
+									<input class="size8 m-text18 t-center num-product quality" type="number" name="num-product1" value="1" max="<?php echo $row['quality'] ?>" min="1">
 
-								<input class="size8 m-text18 t-center num-product" type="number" name="num-product" min="1" value="1" max="<?php echo $row['quality']?>">
-
-								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2 updatequatity" ten = "-" x="<?php echo $row['quality'] ?>">+
 								</button>
 							</div>
-								
 							<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
 								<!-- Button -->
 								<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 addcart" ten="<?php echo $row['id_product'] ?>">
 									Add to Cart
 								</button>
-							</div>
+							</div>	
 						</div>
+
 					</div>
 				</div>
-
+			
 				<div class="p-b-45">
 					<span class="s-text8 m-r-35">SKU: <?php echo $row['id_category'] ?></span>
 					<span class="s-text8">Categories: <?php echo $row['category'] ?></span>
@@ -245,6 +241,15 @@
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect2')
 		});
+		$(".updatequatity").click(function(){
+			var ten = $(this).attr('ten');
+			var sl = $('.quality').val();
+			var slmax= $(this).attr('x');
+			if (sl>=slmax) {
+				sl=slmax;
+			}
+			$('.quality').val(sl);
+		});
 	</script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
@@ -261,7 +266,7 @@
 		$('.addcart').click(function(event){
 			var id = $(this).attr('ten');
 			$.get("ajaxaddcart.php",{id: id} ,function(data){
-				$('.header-wrapicon2').html(data);
+				$('.header-cart-wrapitem').html(data);
 			})
 		})
 		$('.btn-addcart-product-detail').each(function(){
