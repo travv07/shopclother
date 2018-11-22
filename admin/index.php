@@ -155,7 +155,8 @@ if ($_SESSION['role'] !== 'admin') {
         <?php include 'includes/footer.php'; ?>
        </div>
      </div>
+
      <script src="assets/js/jquery/jquery.min.js"></script>
-    <script src="assets/js/bootstrap-js/bootstrap.bundle.min.js"></script>
+     <script src="assets/js/bootstrap-js/bootstrap.bundle.min.js"></script>
    </body>
  </html>

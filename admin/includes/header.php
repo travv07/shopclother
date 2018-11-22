@@ -12,6 +12,7 @@
     <link href="assets/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="assets/css/sb-admin.css" rel="stylesheet">
+    
   </head>
   <body id="page-top">
 
