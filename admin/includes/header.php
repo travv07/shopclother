@@ -12,16 +12,15 @@
     <link href="assets/css/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="assets/css/sb-admin.css" rel="stylesheet">
-    
+
   </head>
   <body id="page-top">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-      <a class="navbar-brand mr-1" href="index.html">Cái Lò Gạch Cũ</a>
+      <a class="navbar-brand mr-1" href="index.php">CÁI LÒ GẠCH CŨ</a>
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
       </button>
-
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
@@ -33,7 +32,6 @@
           </div>
         </div>
       </form>
-
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
         <li class="nav-item dropdown no-arrow mx-1">
