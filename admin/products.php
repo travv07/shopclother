@@ -15,6 +15,17 @@
           <a href="index.php">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">Products</li>
+
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Product Name " aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
       </ol>
 
       <div class="card mb-3">
@@ -66,7 +77,7 @@
               <td> <img width="100" src="uploads/<?= $image_p;?>" alt="<?= $image_p; ?>"></td>
               <td>
                 <a href="deleteProduct.php?id=<?= $id_p; ?>">Delete</a> |
-            
+
                 <a href="editProduct.php?id=<?= $id_p; ?>">Edit</a>
               </td>
               </tr>

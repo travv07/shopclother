@@ -45,14 +45,14 @@
 
 
               $queryOrder =
-              "SELECT U.fullname, U.email_address, U.address, P.name , P.price, quality, P.price * quality as total, O.created_at  FROM Orderdetail INNER JOIN Orders O on Orderdetail.id_order = O.id
+              "SELECT O.id, U.fullname, U.email_address, U.address, P.name , P.price, quality, P.price * quality as total, O.created_at  FROM Orderdetail INNER JOIN Orders O on Orderdetail.id_order = O.id
 INNER JOIN User U on O.id_user = U.id INNER JOIN Products P on Orderdetail.id_product = P.id_product
 ";
               $resultOrder = $conn->query($queryOrder);
               if ($resultOrder->num_rows > 0) {
                 // output data of each row
                 while($rowO = $resultOrder->fetch_assoc()) {
-
+                  $id = $rowO['id'];
                   $name_p = $rowO['fullname'];
                   $email = $rowO['email_address'];
                   $address = $rowO['address'];
@@ -73,11 +73,11 @@ INNER JOIN User U on O.id_user = U.id INNER JOIN Products P on Orderdetail.id_pr
               <td><?= $quantity; ?></td>
               <td><?= $total; ?></td>
               <td><?= $order_date; ?></td>
-              
-              <td>
-                <a href="deleteProduct.php?id=<?= $id_p; ?>">Delete</a> |
 
-                <a href="editProduct.php?id=<?= $id_p; ?>">Edit</a>
+              <td>
+                <a href="deleteOrder.php?id=<?= $id; ?>">Delete</a>
+
+
               </td>
               </tr>
               <?php }}  ?>
