@@ -126,7 +126,7 @@
 					<div class="row showproduct">
 						<?php
 					  	include("connectDB.php");
-						$sql = "SELECT count(p.id_product) as total from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img";
+						$sql = " SELECT count(id_product) as total from Products";
 						$result = mysqli_query($conn,$sql);
 						$row = mysqli_fetch_assoc($result);
 						$total_records= $row['total'];
@@ -139,7 +139,7 @@
 							$current_page=1;
 						}
 						$start = ($current_page-1)*$limit;
-						$sql1= "SELECT * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img LIMIT $start,$limit";
+						$sql1= "SELECT * from Products LIMIT $start,$limit";
 						$result =$result = mysqli_query($conn,$sql1);
 						?>
 						<?php while ($row = mysqli_fetch_array($result)) { ?>
@@ -147,7 +147,7 @@
 							<!-- Block2 -->		
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-									<img src="images/<?php echo $row['image'] ?>" alt="IMG-PRODUCT">
+									<img src="images/<?php echo $row['thumbnail'] ?>" alt="IMG-PRODUCT">
 
 									<div class="block2-overlay trans-0-4">
 										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

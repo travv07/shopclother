@@ -2,7 +2,7 @@
 	include('connectDB.php');
 	if(isset($_GET['category'])){
 		$categorys = $_GET['category'];
-		$sql = "SELECT * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img JOIN Categorys as c on c.id_category=p.id_category where c.category='$categorys'";
+		$sql = "SELECT * from Products as p JOIN Categorys as c on c.id_category=p.id_category where c.category='$categorys'";
 		$rs = mysqli_query($conn,$sql);
 		while ($row = mysqli_fetch_array($rs)) {
  ?>
@@ -10,7 +10,7 @@
 		<!-- Block2 -->		
 		<div class="block2">
 			<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-				<img src="images/<?php echo $row['image'] ?>" alt="IMG-PRODUCT">
+				<img src="images/<?php echo $row['thumbnail'] ?>" alt="IMG-PRODUCT">
 
 				<div class="block2-overlay trans-0-4">
 					<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -18,9 +18,9 @@
 						<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
 					</a>
 
-					<div class="block2-btn-addcart w-size1 trans-0-4">
+					<div class="block2-btn-addcart w-size1 trans-0-4 ">
 						<!-- Button -->
-						<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+						<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 addcart" ten="<?php echo $row['id_product'] ?>">
 							Add to Cart
 						</button>
 					</div>
@@ -43,16 +43,8 @@
 	}
 } ?>
 <script type="text/javascript">
-		$('.block2-btn-addcart').each(function(){
-			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
-			});
-		});
-		$('.addcart').click(function(event){
-			var id = $(this).attr('ten');
-			$.get("ajaxaddcart.php",{id: id} ,function(data){
-				$('.header-cart-wrapitem').html(data);
-			})
+		$('.addcart').on('click', function(){
+			var ten = $(this).attr('ten');
+			window.location.href="product-detail.php?id="+ten;
 		});
 </script>

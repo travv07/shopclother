@@ -16,7 +16,7 @@
 			$i++;
 		}
 		$listid = trim($listid,",");
-		$sql ="select * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img where p.id_product in ($listid)";	
+		$sql ="select * from Products where id_product in ($listid)";	
 		$rs = mysqli_query($conn,$sql);
 		$tongtien= 0;
 		while ($row = mysqli_fetch_array($rs)) {
@@ -29,7 +29,7 @@
 ?>
 	<li class="header-cart-item">
 		<div class="header-cart-item-img">
-			<img src="images/<?php echo $row['image'] ?>" alt="IMG" ten="<?php echo $id ?>" class="deletecart">
+			<img src="images/<?php echo $row['thumbnail'] ?>" alt="IMG" ten="<?php echo $id ?>" class="deletecart">
 		</div>
 
 		<div class="header-cart-item-txt">

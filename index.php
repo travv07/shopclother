@@ -119,7 +119,7 @@
 				<div class="slick2">
 					<?php
 					  include("connectDB.php");
-						$sql = "SELECT * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img";
+						$sql = "SELECT * from Products";
 						$result = mysqli_query($conn,$sql);
 						while ($row = mysqli_fetch_array($result)) {
 					 ?>
@@ -127,7 +127,7 @@
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-img wrap-pic-w of-hidden pos-relative">
-								<img src="images/<?php echo $row['image'] ?>" alt="IMG-PRODUCT" wight="270px" height="360px">
+								<img src="images/<?php echo $row['thumbnail'] ?>" alt="IMG-PRODUCT" wight="270px" height="360px">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
@@ -241,11 +241,9 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
 	<script type="text/javascript">
-		$('.addcart').each(function(){
-			var ten = $(this).attr('ten');	
-			$(this).on('click', function(){
-				window.location.href="product-detail.php?id="+ten;
-			});
+		$('.addcart').on('click', function(){
+			var ten = $(this).attr('ten');
+			window.location.href="product-detail.php?id="+ten;
 		});
 		$(document).ready(function(){
 			$('.category').click(function(event){

@@ -138,9 +138,6 @@
 									<input type="password" name="password1" id="password1" class="form-control input-lg" placeholder="Password" tabindex="3">
 								</div>
 								<div class="form-group1">
-									<input type="password" name="password_confirm" id="password_confirm" class="form-control input-lg" placeholder="Password agian" tabindex="3">
-								</div>
-								<div class="form-group1">
 									<p>Your image</p>
 									<input type='file' name="">
 								</div>
@@ -163,7 +160,7 @@
 							$listid.="'".$key."',";
 						}
 						$listid = trim($listid,",");
-						$sql ="select * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img where p.id_product in ($listid)";
+						$sql ="select * from Products where id_product in ($listid)";
 						$rs = mysqli_query($conn,$sql);
 						$tongtien= 0;	
 				?>
@@ -183,7 +180,7 @@
 							?>
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/<?php echo $row['image'] ?>" alt="IMG" ten="<?php echo $id ?>" class="deletecart">
+										<img src="images/<?php echo $row['thumbnail'] ?>" alt="IMG" ten="<?php echo $id ?>" class="deletecart">
 									</div>
 
 									<div class="header-cart-item-txt">

@@ -48,7 +48,7 @@
 			include("connectDB.php");
 			if (isset($_GET['id'])) {
 				$id_product = $_GET['id'];
-				$sql= "SELECT * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img JOIN Categorys as c on c.id_category=p.id_category where p.id_product='$id_product'";
+				$sql= "SELECT * from Products as p JOIN Categorys as c on c.id_category=p.id_category where p.id_product='$id_product'";
 			}
 			$result= mysqli_query($conn,$sql);
 			while ($row = mysqli_fetch_array($result)) {
@@ -78,9 +78,9 @@
 					<div class="wrap-slick3-dots"></div>
 
 					<div class="slick3">
-						<div class="item-slick3" data-thumb="images/<?php echo $row['image'] ?>">
+						<div class="item-slick3" data-thumb="images/<?php echo $row['thumbnail'] ?>">
 							<div class="wrap-pic-w">
-								<img src="images/<?php echo $row['image'] ?>" alt="IMG-PRODUCT">
+								<img src="images/<?php echo $row['thumbnail'] ?>" alt="IMG-PRODUCT">
 							</div>
 						</div>
 					</div>
@@ -162,7 +162,7 @@
 				<div class="slick2">
 					<?php
 					  include("connectDB.php");
-						$sql = "SELECT * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img";
+						$sql = "SELECT * from Products";
 						$result = mysqli_query($conn,$sql);
 						while ($row = mysqli_fetch_array($result)) {
 					 ?>
@@ -170,7 +170,7 @@
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-img wrap-pic-w of-hidden pos-relative">
-								<img src="images/<?php echo $row['image'] ?>" alt="IMG-PRODUCT" wight="270px" height="360px">
+								<img src="images/<?php echo $row['thumbnail'] ?>" alt="IMG-PRODUCT" wight="270px" height="360px">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">

@@ -80,7 +80,6 @@
             },1800);            
         });
         const arr = ['images/bia2.jpg','images/bia3.jpg','images/bia1.jpg'];
-        alert("hello");
 
         
         /*[ Slick2 ]

@@ -52,7 +52,7 @@
 					$listid.="'".$key."',";
 				}
 				$listid = trim($listid,",");
-				$sql ="select * from Products as p join Productimage as pi on p.id_product_img=pi.id_product_img where p.id_product in ($listid)";
+				$sql ="select * from Products where id_product in ($listid)";
 				$rs = mysqli_query($conn,$sql);
 				$tongtien= 0;
 		 ?>
@@ -89,7 +89,7 @@
 							<tr class="table-row">
 								<td class="column-1">
 									<div class="cart-img-product b-rad-4 o-f-hidden">
-										<img src="images/<?php echo $row['image'] ?>" ten= "<?php echo $id ?>" alt="IMG-PRODUCT" class="deletecart">
+										<img src="images/<?php echo $row['thumbnail'] ?>" ten= "<?php echo $id ?>" alt="IMG-PRODUCT" class="deletecart">
 									</div>
 								</td>
 								<td class="column-2"><?php echo $row['name'] ?></td>
