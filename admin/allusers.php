@@ -31,8 +31,8 @@
                       <th>Full name</th>
                       <th>Email</th>
                       <th>Address</th>
+                      <td>Avatar</td>
                       <th>Role</th>
-                      <td>Action</td>
                     </tr>
                   </thead>
 
@@ -41,7 +41,7 @@
                     include '../connectDB.php';
 
                   //get users
-                  $queryuser = "SELECT id, email_address, fullname, address, rule FROM User";
+                  $queryuser = "SELECT id, email_address, fullname, address,image,rule FROM User";
                   $resultuser = $conn->query($queryuser);
                   if ($resultuser->num_rows > 0) {
                     // output data of each row
@@ -50,6 +50,7 @@
                       $fullname = $rowuser['fullname'];
                       $email = $rowuser['email_address'];
                       $address = $rowuser['address'];
+                      $image = $rowuser['image'];
                       $role = $rowuser['rule'];
               ?>
               <tr>
@@ -58,6 +59,7 @@
                 <td><?= $fullname; ?></td>
                 <td><?= $email; ?></td>
                 <td><?= $address; ?></td>
+                <td><img width="100" src="../images/<?= $image ?>" alt="<?= $image; ?>"></td>
                 <td><?= $role ?></td>
                 <?php
                   if($role != 'admin') {

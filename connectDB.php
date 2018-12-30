@@ -1,6 +1,6 @@
 <?php
 	$username = "root";//sql12207584
-	$password = "Learn4car1$";//KzyYpsTKu2
+	$password = "1";//KzyYpsTKu2
 	$servername ="localhost";//sql12.freemysqlhosting.net
 
 	$dbname = "shopclothes";//sql12207584

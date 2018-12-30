@@ -74,7 +74,7 @@
               <td><?= $cate_p ;?></td>
               <td><?= $description_p; ?></td>
               <td><?= $price_p; ?></td>
-              <td> <img width="100" src="uploads/<?= $image_p;?>" alt="<?= $image_p; ?>"></td>
+              <td> <img width="100" src="../images/<?= $image_p;?>" alt="<?= $image_p; ?>"></td>
               <td>
                 <a href="deleteProduct.php?id=<?= $id_p; ?>">Delete</a> |
 
